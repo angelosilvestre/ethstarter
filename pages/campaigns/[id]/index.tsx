@@ -7,7 +7,7 @@ import Campaign, {
   GetSummaryResult,
 } from '../../../ethereum/contracts/impl/Campaign';
 import web3 from '../../../ethereum/web3';
-import styles from '../campaign.module.css';
+import styles from '../../../styles/Campaign.module.css';
 
 interface CampaignViewProps {
   campaignAddress: string;
