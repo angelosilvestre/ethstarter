@@ -58,7 +58,7 @@ const CampaignView: React.FC<CampaignViewProps> = ({
         className: styles.campaignCard,
       },
     ];
-    return <Card.Group items={items} fluid={true} />;
+    return <Card.Group items={items} />;
   };
 
   return (
