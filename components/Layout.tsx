@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <Container>
       <PageHeader />
-      <MetamaskChecker />
+      {/* <MetamaskChecker /> */}
       {children}
     </Container>
   );
