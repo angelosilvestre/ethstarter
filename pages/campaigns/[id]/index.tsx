@@ -1,7 +1,15 @@
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import React from 'react';
-import { Button, Card, CardProps, Grid } from 'semantic-ui-react';
+import {
+  Button,
+  Card,
+  CardProps,
+  Grid,
+  GridRow,
+  GridColumn,
+  CardGroup,
+} from 'semantic-ui-react';
 import Contribute from '../../../components/Contribute';
 import Campaign, {
   GetSummaryResult,
@@ -28,21 +36,21 @@ const CampaignView: React.FC<CampaignViewProps> = ({
         className: styles.campaignCard,
       },
       {
-        header: summary.campaignMinimunContribution,
+        header: summary.campaignMinimunContribution.toString(),
         meta: 'Minimun Contribution (wei)',
         description:
           'You must contribute at least this much way to become an approver',
         className: styles.campaignCard,
       },
       {
-        header: summary.campaignNumRequests,
+        header: summary.campaignNumRequests.toString(),
         meta: 'Number of Requests',
         description:
           'A request tries to withdraw money from the contract. Requests must be approved by approvers',
         className: styles.campaignCard,
       },
       {
-        header: summary.campaignAproversCount,
+        header: summary.campaignAproversCount.toString(),
         meta: 'Number of Approvers',
         description: 'Number of people who already donated to the campaign',
         className: styles.campaignCard,
@@ -58,28 +66,28 @@ const CampaignView: React.FC<CampaignViewProps> = ({
         className: styles.campaignCard,
       },
     ];
-    return <Card.Group items={items} />;
+    return <CardGroup items={items} />;
   };
 
   return (
     <div>
       <h3>Campaign View</h3>
       <Grid>
-        <Grid.Row>
-          <Grid.Column width={10}>{renderItems()}</Grid.Column>
-          <Grid.Column width={6}>
+        <GridRow>
+          <GridColumn width={10}>{renderItems()}</GridColumn>
+          <GridColumn width={6}>
             <Contribute campaignAddress={campaignAddress} />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column>
+          </GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn>
             <Link href={`${campaignAddress}/requests`}>
               <a>
                 <Button>View Requests</Button>
               </a>
             </Link>
-          </Grid.Column>
-        </Grid.Row>
+          </GridColumn>
+        </GridRow>
       </Grid>
     </div>
   );
